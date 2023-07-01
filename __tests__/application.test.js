@@ -19,9 +19,9 @@ test('application 1', async () => {
   const sendButton = screen.getByRole('button', { name: 'Send' });
   const emailField = screen.getByRole('textbox', { name: 'Email' });
   const nameField = screen.getByRole('textbox', { name: 'Name' });
-  await userEvent.type(emailField, 'a@b.c');
-  await userEvent.type(nameField, 'Toto');
-  await userEvent.click(sendButton);
+  await userEvent.default.type(emailField, 'a@b.c');
+  await userEvent.default.type(nameField, 'Toto');
+  await userEvent.default.click(sendButton);
 
   const sendText = screen.getByText('Feedback has been sent');
   const emailText = screen.getByText('Email: a@b.c');
@@ -37,10 +37,10 @@ test('application 2', async () => {
   const emailField = screen.getByRole('textbox', { name: 'Email' });
   const nameField = screen.getByRole('textbox', { name: 'Name' });
   const commentField = screen.getByRole('textbox', { name: 'Comment' });
-  await userEvent.type(emailField, 'toto@hexlet.io');
-  await userEvent.type(nameField, 'Toto Robbins');
-  await userEvent.type(commentField, 'If you <i>can</i> do, you <b>must</b> do');
-  await userEvent.click(sendButton);
+  await userEvent.default.type(emailField, 'toto@hexlet.io');
+  await userEvent.default.type(nameField, 'Toto Robbins');
+  await userEvent.default.type(commentField, 'If you <i>can</i> do, you <b>must</b> do');
+  await userEvent.default.click(sendButton);
 
   const sendText = screen.getByText('Feedback has been sent');
   const commentText = screen.getByText(/Comment.*/);
